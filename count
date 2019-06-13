@@ -1,0 +1,51 @@
+//topic: count, count distinct
+
+
+SELECT
+  COUNT(*) as cnt
+FROM
+  `bigquery-public-data.usa_names.usa_1910_current`
+
+
+
+
+  SELECT
+  COUNT(distinct gender) as gender_count,
+  count(distinct year) as year_count
+FROM
+  `bigquery-public-data.usa_names.usa_1910_current`
+
+
+  with Null value
+
+  count (specidic colume) will not count the null value
+  but count(*) will count null bc it counts the row
+
+  9. Returning Distinct Records and Ordering Records
+
+  select
+  distinct state
+  from
+    `bigquery-public-data.usa_names.usa_1910_current`
+    order by
+    state 
+
+    order by: alphabetical
+    ASC
+    DESC
+
+
+    Returning DIstinct Records and Order with Multiple Columns
+
+
+    select
+    distinct
+    borough,
+    major
+    //both are distinct always together
+    from
+    ---
+    ordery by
+    borough
+    major
+
