@@ -1,0 +1,32 @@
+Section 3: Where Clause
+
+* where comes before order by
+*!= not equal
+
+12. Where cluases on Numerical Columns
+* less than a equal to <=
+* greater than or equal to >=
+* where tripdurtation in (60,120) either 60 or 120, it is giving the list 
+=====
+tripdurtation = 60 or tripdurtation = 120
+
+13. Where Clause on String Columns
+
+has a word "Drugs" in it -> minor category like "%Drugs%" case sensitive
+% means in the front it can have anything but has to end with Drug
+% -> can have anything 
+
+lower(column) making the all ones in column lower case so that we can avoid the case sensitive
+
+14. where clause on timestamp columns
+
+making the timestamp into date
+cast(start_time as date) as start_time_date
+
+extracting just the hours (minute/day)
+extract(hour from start_time) as start_time_hour
+
+
+15. where Null IS not Null
+
+where column name is null
