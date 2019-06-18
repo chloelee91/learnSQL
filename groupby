@@ -1,0 +1,25 @@
+17. Group By and Aggregation function: max, min, sum, count, avg
+
+what was the maximum trip_total for each payment type group?
+max(trip_total) as max_trip_total
+avg(trip_total) as avg_trip_total
+
+<<using multiple aggregation functions in single query>>
+
+<Having> this works only with group by. It is to filter after aggregating
+after group by
+example
+having max_trip_total > 10000
+
+<<To know which hour was the install happening>>
+SELECT
+  EXTRACT(hour FROM starttime) AS hour,
+  count(*) as total_number_of_bike_rides
+FROM
+  `bigquery-public-data.new_york_citibike.citibike_trips`
+where 
+  starttime is not null  
+GROUP BY
+  hour
+ORDER BY
+  hour
