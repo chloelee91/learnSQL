@@ -1,0 +1,2 @@
+trim (cl) : deleting all the space
+lower (cl) : making it all lower case so that case sensitive does not play a role
