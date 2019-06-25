@@ -1,2 +1,39 @@
 trim (cl) : deleting all the space
 lower (cl) : making it all lower case so that case sensitive does not play a role
+
+**cast -> converting the type
+(1) Casting datetimes and timestamps to date type:
+CAST(starttime AS date) AS start_date
+(2) casting strings to integer
+CAST(terminal_name AS int64)  --this casts to integer/int64 is . just gonna be same as integer
+(3)example of casting date to string
+CAST(install_date AS string)
+
+**Mathmatic: https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators#mathematical-functions
+
+**String function: https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators#mathematical-functions
+length(name) as name_length, -- returns length of the string
+  LOWER(name) AS lower_name, -- converts to lower case
+  UPPER(name) AS upper_name, -- converts to upper case
+  TRIM(name) AS trimmed_name_ex1, -- trims leading and trailing white space,
+  TRIM(name,'y') AS trimmed_name_ex2, -- trims leading and trailing white space
+  CONCAT(name, ' : ', gender) as concat_ex1, --gluing it together
+  CONCAT(name, '-', gender, '-', state) as concat_ex2,
+  substr(name,2) as substring_ex1, -- take everything from 2nd position onward
+  substr(name,2,3) as substring_ex2, -- starting from second position take  3 characters length,
+  substr(name,2,5) as substring_ex3, -- starting from second position take  5 characters length
+  substr(name,-3,2) as substring_ex4, --if position is negative, the function counts from the end of value with -1 indicating the last character.
+  replace(name,'a','CHRIS') as replace_ex1, --REPLACE(original_value, from_value, to_value)
+  
+**Date and Time Functions
+CURRENT_TIMESTAMP() AS current_time_stamp -- the time that I am running the SQL
+DATETIME_ADD(starttime, INTERVAL 5 DAY) AS five_days_later_from_start_time,
+DATETIME_DIFF(stoptime, starttime,  MINUTE) as tripduration_minutes,
+DATETIME_DIFF(stoptime, starttime,  SECOND) as tripduration_seconds,
+DATETIME_DIFF(stoptime, starttime,  HOUR) as tripduration_hours,
+date_diff(current_date(), cast(stoptime as date), DAY) as days_from_stop_to_current_date
+
+extract(year from trip_start_timestamp) as year,
+extract(day from trip_start_timestamp) as day,
+extract(hour from trip_start_timestamp) as hour,
+extract(week from trip_start_timestamp) as week
