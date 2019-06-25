@@ -1,0 +1,29 @@
+CASE
+    WHEN Condition1 THEN result1
+    WHEN Condition2 THEN result2
+    WHEN ConditionN THEN resultN
+    ELSE result END as column_description (this is just same as AS END)
+    
+Example1:
+SELECT
+  duration_minutes,
+  CASE
+    WHEN duration_minutes <= 5 THEN 'less_than_5_minutes'
+    WHEN duration_minutes > 5
+  AND duration_minutes <= 10 THEN '5_to_10_minutes'
+    WHEN duration_minutes > 10 AND duration_minutes <=30 THEN '10_to_30_minutes'
+    ELSE 'greater_than_30_minutes'
+  END AS trip_duration
+FROM
+  `bigquery-public-data.austin_bikeshare.bikeshare_trips`
+  
+Example2:
+SELECT
+  CASE
+    WHEN LOWER(title) LIKE '%machine learning%' THEN 'machine_learning'
+    WHEN LOWER(title) LIKE '%python%' THEN 'python'
+    WHEN LOWER(title) LIKE '%big query%' THEN 'big query'
+    ELSE 'other'
+  END AS topic_desc
+FROM
+  `bigquery-public-data.stackoverflow.stackoverflow_posts`
