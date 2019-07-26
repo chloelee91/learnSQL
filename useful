@@ -37,3 +37,16 @@ extract(year from trip_start_timestamp) as year,
 extract(day from trip_start_timestamp) as day,
 extract(hour from trip_start_timestamp) as hour,
 extract(week from trip_start_timestamp) as week
+
+
+**substring
+select substring("---"from 1 for 4) as first_4_LETTERS
+//1:position 4:how long
+SELECT SUBSTRING(email, POSITION ("@" IN  email) FROM ---
+//Position tells you which number is the position from the email so you  can easily combine with substring
+//here you will return @gmail.com
+
+**replace
+SELECT departments, REPLACE (departments, "clothing", "Attire") as Modified_Departments
+FROM departments
+//changing all "clothing"to "attire
