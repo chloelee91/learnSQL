@@ -1,0 +1,26 @@
+//third colume with the case statement will appear
+
+SELECT first_name, salary,
+CASE
+  WHEN salary < 10000 THEN 'UNDER PAID'
+  WHEN salary > 10000 AND salary <16000 THEN 'PAID WELL'
+  ELSE 'UNPAID' //in case the date is NULL
+END as category // Dont forget END, you can put more than 2 WHEN
+FROM employees
+ORDER BY salary DESC
+
+
+//Transposing data using case
+SELECT sum(CASE WHEN salary<10000 THEN 1 ELSE 0) as under_paid,
+       sum(CASE WHEN salary>10000 AND salary <150000 THEN 1 ELSE 0) as paid_well
+       sum(CASE WHEN salary>150000 THEN 1 ELSE 0) as executive
+FROM employees
+
+-->
+underpaid xx
+well paid xx
+executive xx 이 아닌
+
+underpaid wellpaid executive
+xx    xx    xx
+이 된다
